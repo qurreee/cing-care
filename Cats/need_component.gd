@@ -1,7 +1,7 @@
 extends Node2D
 class_name NeedComponent
 
-var hunger : int = 100
+var hunger : int = 20
 var MAX_HUNGER : int = 100
 var DECAY : int = 5
 

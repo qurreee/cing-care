@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://3ohdtlcsw15b"]
 
-[ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://cat.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Cats/Cat.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://cx0s2nut0ha66" path="res://Scenes/GridManager.tscn" id="2_8uh7m"]
 
 [node name="Test" type="Node2D" unique_id=1514850594]
 
 [node name="Cat" parent="." unique_id=1164465714 instance=ExtResource("1_37kl0")]
 position = Vector2(414, 215)
+
+[node name="GridManager" parent="." unique_id=1617946444 instance=ExtResource("2_8uh7m")]
+position = Vector2(574, 317)

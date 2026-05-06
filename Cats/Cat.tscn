@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://bl3g4h7yq5gm7"]
 
-[ext_resource type="Texture2D" uid="uid://b0ywavesvv1pu" path="res://Cat Sprite Sheet.png" id="1_hcucf"]
-[ext_resource type="Script" uid="uid://ch06gkcq3s7gb" path="res://need_component.gd" id="2_52fj1"]
-[ext_resource type="Script" uid="uid://cfb55n21bdrrc" path="res://interaction_component.gd" id="3_6fl1u"]
+[ext_resource type="Texture2D" uid="uid://b0ywavesvv1pu" path="res://Cats/Cat Sprite Sheet.png" id="1_hcucf"]
+[ext_resource type="Script" uid="uid://cylxh8da66epd" path="res://Cats/cat.gd" id="1_mf5uw"]
+[ext_resource type="Script" uid="uid://ch06gkcq3s7gb" path="res://Cats/need_component.gd" id="2_52fj1"]
+[ext_resource type="Script" uid="uid://cfb55n21bdrrc" path="res://Cats/interaction_component.gd" id="3_6fl1u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
-radius = 21.023796
+radius = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52fj1"]
 atlas = ExtResource("1_hcucf")
@@ -47,13 +48,14 @@ animations = [{
 size = Vector2(100, 10)
 
 [node name="Cat" type="CharacterBody2D" unique_id=1164465714]
+script = ExtResource("1_mf5uw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1210123214]
 shape = SubResource("CircleShape2D_2v165")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=672151596]
 position = Vector2(0, -13)
-scale = Vector2(2.140625, 2.140625)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
 animation = &"idle"
 autoplay = "idle"

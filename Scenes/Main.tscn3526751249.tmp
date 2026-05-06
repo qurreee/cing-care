@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://qdjhlxm4jwr5"]
+
+[ext_resource type="Script" uid="uid://b04gylem30a7v" path="res://Scenes/main.gd" id="1_idj7w"]
+[ext_resource type="PackedScene" uid="uid://cx0s2nut0ha66" path="res://Scenes/GridManager.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Scenes/Facilities/facility_data.gd" id="2_kln2b"]
+[ext_resource type="Resource" uid="uid://dbj1iiv3vvbc1" path="res://Scenes/Facilities/FacilityDatas/feeding_station.tres" id="3_rgh2o"]
+[ext_resource type="Resource" uid="uid://d1m184q5y7tv1" path="res://Scenes/Facilities/FacilityDatas/catbed.tres" id="4_pbw6q"]
+[ext_resource type="Script" uid="uid://b5j5r6h8dkuac" path="res://UI/camera_2d.gd" id="6_v1gob"]
+[ext_resource type="Script" uid="uid://b3w3tmcry2ng1" path="res://Scenes/facility_manager.gd" id="7_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Cats/Cat.tscn" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://rnpm102tnrx3" path="res://Scenes/Facilities/Facility.tscn" id="8_50glp"]
+[ext_resource type="Script" uid="uid://3804oy6hiww" path="res://Scenes/cat_manager.gd" id="9_vy5pj"]
+
+[node name="Main" type="Node2D" unique_id=1146822521]
+script = ExtResource("1_idj7w")
+
+[node name="GridManager" parent="." unique_id=1617946444 instance=ExtResource("1_r150o")]
+show_debug = true
+
+[node name="FacilityManager" type="Node2D" parent="." unique_id=1830920807]
+script = ExtResource("7_bmxlf")
+facilities = Array[ExtResource("2_kln2b")]([ExtResource("3_rgh2o"), ExtResource("4_pbw6q")])
+facility_scene = ExtResource("8_50glp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=405965849]
+script = ExtResource("6_v1gob")
+
+[node name="CatManager" type="Node2D" parent="." unique_id=1765479745]
+script = ExtResource("9_vy5pj")
+cat_scene = ExtResource("7_jw32o")
