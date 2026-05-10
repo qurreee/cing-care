@@ -10,7 +10,6 @@ var DECAY : int = 5
 func _ready() -> void:
 	hunger_bar.max_value = MAX_HUNGER
 	hunger_bar.value = hunger
-	print(hunger_bar.value)
 	
 #feed
 func feed(amount: int)-> void:
@@ -26,4 +25,3 @@ func _on_decay_timer_timeout() -> void:
 	hunger -= DECAY
 	hunger = clamp(hunger, 0, MAX_HUNGER)
 	hunger_bar.value = hunger
-	print(hunger)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FacilityRegistry" format=3 uid="uid://cc2kyllnf6nt1"]
+
+[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Scenes/Facilities/facility_data.gd" id="1_0uwts"]
+[ext_resource type="Script" uid="uid://bagneqj1n6801" path="res://Scenes/Facilities/facility_registry.gd" id="2_rcj6t"]
+[ext_resource type="Resource" uid="uid://d1m184q5y7tv1" path="res://Scenes/Facilities/FacilityDatas/catbed.tres" id="2_s3xaj"]
+[ext_resource type="Resource" uid="uid://dbj1iiv3vvbc1" path="res://Scenes/Facilities/FacilityDatas/feeding_station.tres" id="3_4l22o"]
+
+[resource]
+script = ExtResource("2_rcj6t")
+facilities = Array[ExtResource("1_0uwts")]([ExtResource("2_s3xaj"), ExtResource("3_4l22o")])
+metadata/_custom_type_script = "uid://bagneqj1n6801"

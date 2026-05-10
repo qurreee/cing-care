@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b04gylem30a7v" path="res://Scenes/main.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://cx0s2nut0ha66" path="res://Scenes/GridManager.tscn" id="1_r150o"]
-[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Scenes/Facilities/facility_data.gd" id="2_kln2b"]
-[ext_resource type="Resource" uid="uid://dbj1iiv3vvbc1" path="res://Scenes/Facilities/FacilityDatas/feeding_station.tres" id="3_rgh2o"]
-[ext_resource type="Resource" uid="uid://d1m184q5y7tv1" path="res://Scenes/Facilities/FacilityDatas/catbed.tres" id="4_pbw6q"]
 [ext_resource type="Script" uid="uid://b5j5r6h8dkuac" path="res://UI/camera_2d.gd" id="6_v1gob"]
 [ext_resource type="Script" uid="uid://b3w3tmcry2ng1" path="res://Scenes/facility_manager.gd" id="7_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Cats/Cat.tscn" id="7_jw32o"]
@@ -19,7 +16,6 @@ show_debug = true
 
 [node name="FacilityManager" type="Node2D" parent="." unique_id=1830920807]
 script = ExtResource("7_bmxlf")
-facilities = Array[ExtResource("2_kln2b")]([ExtResource("3_rgh2o"), ExtResource("4_pbw6q")])
 facility_scene = ExtResource("8_50glp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=405965849]
@@ -28,3 +24,45 @@ script = ExtResource("6_v1gob")
 [node name="CatManager" type="Node2D" parent="." unique_id=1765479745]
 script = ExtResource("9_vy5pj")
 cat_scene = ExtResource("7_jw32o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=147631340]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=459843587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NextPhase Button" type="Button" parent="CanvasLayer/UI" unique_id=190799656]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -96.0
+offset_right = -35.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "NEXT PHASE"
+
+[node name="CatList" type="Label" parent="CanvasLayer/UI" unique_id=1589966867]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DayPhase" type="Label" parent="CanvasLayer/UI" unique_id=1310979849]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "PREP"
+
+[connection signal="pressed" from="CanvasLayer/UI/NextPhase Button" to="." method="_on_next_phase_button_pressed"]

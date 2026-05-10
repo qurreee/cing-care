@@ -41,7 +41,6 @@ func place_facility(cell: Vector2i, facility: Facility) -> void:
 	var pos = get_cell_center(cell)
 	grid[cell].position = pos
 
-
 func move_facility() -> void:
 	pass
 
@@ -64,8 +63,6 @@ func _draw() -> void:
 			var rect = Rect2(pos, Vector2(CELL_SIZE, CELL_SIZE))
 
 			draw_rect(rect, Color.WHITE, false, 2.0)
-
-
 
 func grid_to_world(pos: Vector2i) -> Vector2:
 	return GRID_ORIGIN +  Vector2(pos) * CELL_SIZE
@@ -111,3 +108,4 @@ func get_facilities_by_type(type: Enums.Needs) -> Array:
 			
 	return result
 	
+#func search_facility_pos() -> 
