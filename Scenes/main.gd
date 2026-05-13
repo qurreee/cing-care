@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	update_label()
+	GameLoop.phase_changed.connect(_on_phase_changed)
 
 func _on_next_phase_button_pressed() -> void:
 	if GameLoop.current_phase == GameLoop.Phase.PREP:
@@ -19,6 +20,13 @@ func _on_next_phase_button_pressed() -> void:
 		GameLoop.next_day()
 		day_phase.text = "PREP"
 
+func _on_phase_changed(phase: GameLoop.Phase) -> void:
+	if phase == GameLoop.Phase.DAY:
+		day_phase.text = "DAY"
+	elif phase == GameLoop.Phase.RESULT:
+		day_phase.text = "RESULT"
+	elif phase == GameLoop.Phase.PREP:
+		day_phase.text = "PREP"
 
 func update_label() -> void:
 	var list: String = ""

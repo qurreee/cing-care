@@ -12,7 +12,7 @@ income_multiplier = 1
 rules = Array[ExtResource("1_osv3b")]([ExtResource("2_m1hsl")])
 need_weights = Dictionary[int, float]({
 0: 1.0,
-1: 1.0,
+1: 10.0,
 2: 1.0,
 3: 10.0,
 4: 1.0

@@ -7,7 +7,6 @@ var cats: Array[Cat] =[]
 
 @onready var grid_manager: GridManager = $"../GridManager"
 
-var day_score: float = 0.0
 
 func _ready() -> void:
 	GameLoop.phase_changed.connect(_on_phase_changed)
@@ -24,16 +23,19 @@ func cat_action() -> void:
 
 func _on_facility_use_finished(cat: Cat) -> void:
 	var score = cat.calculate_score(grid_manager)
-	day_score += score
-	cat.state = Cat.State.IDLE
-	print(cat.data.cat_name,": daySCORE ", day_score)
+	GameManager.day_score += score
+	cat.start_idle(randf_range(2.0, 4.0))
+	print(cat.data.cat_name,": daySCORE ", GameManager.day_score)
 	
 func _on_phase_changed(phase: GameLoop.Phase) -> void:
 	if phase == GameLoop.Phase.DAY:
 		cat_datas = GameManager.todays_cats
 		spawn_cats()
-		cat_action()
 	elif phase == GameLoop.Phase.RESULT:
+		for cat in cats:
+			cat.set_process(false)
+		show_result()
+	elif phase == GameLoop.Phase.PREP:
 		clear_cats()
 
 func spawn_cats() -> void:
@@ -41,12 +43,24 @@ func spawn_cats() -> void:
 		var new_cat: Cat = cat_scene.instantiate()
 		new_cat.setup(cat)
 		new_cat.facility_use_finished.connect(_on_facility_use_finished)
+		new_cat.needs_think.connect(_on_cat_needs_think)
+		new_cat.needs_wander.connect(_on_cat_needs_wander)
 		add_child(new_cat)
 		cats.append(new_cat)
 		place_cat(new_cat)
+		new_cat.start_idle(randf_range(1.0, 4.0))
+
+func _on_cat_needs_think(cat: Cat) -> void:
+	cat.think(grid_manager)
+
+func _on_cat_needs_wander(cat: Cat) -> void:
+	var cell = grid_manager.rand_cell()
+	cat.walk_to(cell, grid_manager.get_cell_center(cell), Cat.MoveReason.WANDER)
 
 func clear_cats() -> void:
 	for c in cats:
 		c.queue_free()
 	cats.clear()
-	
+
+func show_result() -> void:
+	print("Today's Score: ", GameManager.day_score)
