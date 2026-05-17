@@ -6,4 +6,5 @@ Grid based puzzle game about managing a cat daycare, where player need to arrang
 ## Technical Implementation
 - Grid system, Grid based placement
 - Cat, CatData
+- Simple Cat AI/Behaviour
 - GameLoop and daycycle (Prep phase, day phase, and result phase)
