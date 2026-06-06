@@ -17,6 +17,7 @@ signal phase_changed(phase: Phase)
 
 func start_day() -> void:
 	GameManager.generate_day()
+	GameManager.reset_day_score()
 	current_phase = Phase.DAY
 	_timer_remaining = day_timer
 	phase_changed.emit(Phase.DAY)

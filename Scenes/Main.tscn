@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b3w3tmcry2ng1" path="res://Scenes/facility_manager.gd" id="7_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Cats/Cat.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://rnpm102tnrx3" path="res://Scenes/Facilities/Facility.tscn" id="8_50glp"]
+[ext_resource type="Script" uid="uid://bqvsmxinrv5qr" path="res://UI/scoreUI/result_ui.gd" id="8_vy5pj"]
 [ext_resource type="Script" uid="uid://3804oy6hiww" path="res://Scenes/cat_manager.gd" id="9_vy5pj"]
 
 [node name="Main" type="Node2D" unique_id=1146822521]
@@ -64,5 +65,59 @@ offset_top = -23.0
 offset_right = 40.0
 grow_vertical = 0
 text = "PREP"
+
+[node name="ResultUI" type="Control" parent="CanvasLayer/UI" unique_id=248881819]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_vy5pj")
+
+[node name="backpanel" type="Panel" parent="CanvasLayer/UI/ResultUI" unique_id=1913779644]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.5
+offset_top = -209.5
+offset_right = 318.5
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DayLabel" type="Label" parent="CanvasLayer/UI/ResultUI/backpanel" unique_id=1852764768]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 52.0
+offset_right = 74.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "Day"
+
+[node name="ScoreList" type="VBoxContainer" parent="CanvasLayer/UI/ResultUI/backpanel" unique_id=1553896481]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TotalScoreLabel" type="Label" parent="CanvasLayer/UI/ResultUI/backpanel" unique_id=100765849]
+layout_mode = 0
+offset_left = -257.5
+offset_top = -114.5
+offset_right = -217.5
+offset_bottom = -91.5
 
 [connection signal="pressed" from="CanvasLayer/UI/NextPhase Button" to="." method="_on_next_phase_button_pressed"]

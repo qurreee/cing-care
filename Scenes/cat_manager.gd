@@ -23,7 +23,7 @@ func cat_action() -> void:
 
 func _on_facility_use_finished(cat: Cat) -> void:
 	var score = cat.calculate_score(grid_manager)
-	GameManager.day_score += score
+	GameManager.log_score(cat, cat.current_facility, score) 
 	cat.start_idle(randf_range(2.0, 4.0))
 	print(cat.data.cat_name,": daySCORE ", GameManager.day_score)
 	

@@ -6,6 +6,8 @@ var facility_registry: FacilityRegistry = preload("res://Scenes/Facilities/Facil
 
 var todays_cats: Array[CatData] = []
 var day_number: int = 1
+
+var score_log: Array[ScoreEntry] = []
 var day_score: float = 0.0
 
 
@@ -22,6 +24,7 @@ var owned_facilities: Dictionary[String, bool]
 func _ready() -> void:
 	owned_facilities = DEFAULT_FACILITIES.duplicate()
 	generate_day()
+	GameLoop.phase_changed.connect(on_day_phase_changed)
 	#debug
 	#for k in owned_facilities:
 		#print("game manager", k, owned_facilities[k])
@@ -50,3 +53,23 @@ func generate_day() -> void:
 	var pool = cat_registry.cats.duplicate()
 	pool.shuffle()
 	todays_cats = pool.slice(0, 2)
+
+func log_score(cat: Cat, facility: Facility, score:float) -> void:
+	var entry = ScoreEntry.new()
+	entry.cat_name = cat.data.cat_name
+	entry.facility_name = facility.data.facility_name
+	entry.score = score
+	entry.is_positive = score > 0.0
+	score_log.append(entry)
+	day_score+= score
+	
+func reset_day_score() -> void:
+	score_log.clear()
+	day_score = 0.0
+
+
+func on_day_phase_changed(phase: GameLoop.Phase) -> void:
+	if phase == GameLoop.Phase.RESULT:
+		for i in score_log.size():
+			print(str(score_log[i].score) + "\n" )
+	

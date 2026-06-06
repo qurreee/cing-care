@@ -16,7 +16,7 @@ enum RuleType {
 
 func evaluate(cat: Cat, grid_manager: GridManager) -> float:
 	return 0.0
-
+	
 
 static func cell_distance(from: Vector2i, to: Vector2i) -> int:
 	# Chebyshev - use if cats can move diagonally
