@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FacilityData" format=3 uid="uid://brgwcu3s28hbf"]
+
+[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Scenes/Facilities/facility_data.gd" id="1_u6r07"]
+
+[resource]
+script = ExtResource("1_u6r07")
+id = "play_1"
+facility_name = "Feather Stick"
+type = 4
+metadata/_custom_type_script = "uid://ct72lyy22rdg"

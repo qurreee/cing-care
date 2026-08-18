@@ -1,15 +1,7 @@
 extends Resource
 class_name CatRule
 
-enum RuleType {
-	NEAR_FACILITY,
-	SAME_CELL_AREA,
-	SEQUENCE,
-	
-}
-
 @export var rule_name: String
-@export var type: RuleType
 @export var is_negative: bool = true
 @export var weight: float = 1.0
 @export var reward: float = 0.5  

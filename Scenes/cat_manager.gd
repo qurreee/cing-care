@@ -21,11 +21,12 @@ func cat_action() -> void:
 	for c in cats:
 		c.think(grid_manager)
 
+##FIXME
 func _on_facility_use_finished(cat: Cat) -> void:
 	var score = cat.calculate_score(grid_manager)
 	GameManager.log_score(cat, cat.current_facility, score) 
-	cat.start_idle(randf_range(2.0, 4.0))
-	print(cat.data.cat_name,": daySCORE ", GameManager.day_score)
+	cat.start_idle(randf_range(0.0, 4.0))
+	print(cat.data.cat_name,": daySCORE ")
 	
 func _on_phase_changed(phase: GameLoop.Phase) -> void:
 	if phase == GameLoop.Phase.DAY:
@@ -34,7 +35,6 @@ func _on_phase_changed(phase: GameLoop.Phase) -> void:
 	elif phase == GameLoop.Phase.RESULT:
 		for cat in cats:
 			cat.set_process(false)
-		show_result()
 	elif phase == GameLoop.Phase.PREP:
 		clear_cats()
 
@@ -62,5 +62,6 @@ func clear_cats() -> void:
 		c.queue_free()
 	cats.clear()
 
+##FIXME
 func show_result() -> void:
-	print("Today's Score: ", GameManager.day_score)
+	pass

@@ -6,5 +6,6 @@ enum Needs {
 	WATER,
 	SLEEP,
 	PLAY,
-	
+	TOILET,
+	MAINTENANCE
 }

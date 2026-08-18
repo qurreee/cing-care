@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CatData" format=3 uid="uid://ca7c7mujnna7t"]
+
+[ext_resource type="Script" uid="uid://bj57em71n7s8f" path="res://Cats/CatRules/cat_rule.gd" id="1_oev7i"]
+[ext_resource type="Resource" uid="uid://dtbjh8qu6vort" path="res://Cats/CatRules/NearFacility/PlayVWater4.tres" id="2_oev7i"]
+[ext_resource type="Script" uid="uid://d1nvjh23asoqc" path="res://Cats/cat_data.gd" id="3_8g0b2"]
+
+[resource]
+script = ExtResource("3_8g0b2")
+cat_name = "Lillie"
+description = "Lillie likes to play but often feels thirsty. Lillie "
+rules = Array[ExtResource("1_oev7i")]([ExtResource("2_oev7i")])
+need_weights = Dictionary[int, float]({
+0: 5.0,
+1: 4.0,
+2: 10.0,
+3: 1.0,
+4: 10.0,
+5: 3.0,
+6: 1.0
+})
+metadata/_custom_type_script = "uid://d1nvjh23asoqc"

@@ -8,15 +8,18 @@ var todays_cats: Array[CatData] = []
 var day_number: int = 1
 
 var score_log: Array[ScoreEntry] = []
-var day_score: float = 0.0
+
 
 
 #facility unlocked
 const DEFAULT_FACILITIES: Dictionary[String, bool] = {
-	"cat_bed": true,
-	"feeding_station": true,
-	"water_fountain": false,
-	"scratching_post": false,
+	"food_1": true,
+	"sleep_1": true,
+	"water_1": true,
+	"toilet_1": false,
+	"play_1": false,
+	"maintenance_1": false,
+	
 }
 
 var owned_facilities: Dictionary[String, bool] 
@@ -52,7 +55,7 @@ func generate_day() -> void:
 	todays_cats.clear()
 	var pool = cat_registry.cats.duplicate()
 	pool.shuffle()
-	todays_cats = pool.slice(0, 2)
+	todays_cats = pool.slice(0, 3)
 
 func log_score(cat: Cat, facility: Facility, score:float) -> void:
 	var entry = ScoreEntry.new()
@@ -61,11 +64,11 @@ func log_score(cat: Cat, facility: Facility, score:float) -> void:
 	entry.score = score
 	entry.is_positive = score > 0.0
 	score_log.append(entry)
-	day_score+= score
+
 	
 func reset_day_score() -> void:
 	score_log.clear()
-	day_score = 0.0
+
 
 
 func on_day_phase_changed(phase: GameLoop.Phase) -> void:

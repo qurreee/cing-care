@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FacilityData" format=3 uid="uid://d1m184q5y7tv1"]
+
+[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Scenes/Facilities/facility_data.gd" id="1_luml4"]
+
+[resource]
+script = ExtResource("1_luml4")
+id = "sleep_1"
+facility_name = "Cardboard Box"
+type = 3
+metadata/_custom_type_script = "uid://ct72lyy22rdg"

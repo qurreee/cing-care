@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Cat
 
 var data: CatData
+var stay_duration: int = 1
+var mood: float = 50.0
 
 var current_cell: Vector2i
 var current_facility: Facility
@@ -41,7 +43,9 @@ var current_need: Enums.Needs
 
 func setup(cat_data: CatData) -> void:
 	data = cat_data
+	stay_duration  = cat_data.roll_stay_duration()
 
+##TODO add minus mood if no facility
 func think(grid_manager: GridManager) -> void:
 	get_weighted_need()
 	var target :Array = grid_manager.get_facilities_by_type(current_need)
@@ -123,12 +127,17 @@ func get_weighted_need() -> void:
 			prev_need = current_need
 			current_need = need
 			return
-	print(current_need)
+	print("butuh, " + str(current_need))
 
+func apply_score(score: float) -> void:
+	mood = clampf(mood + score, 0, 100)
+	
+##FIXME
 func calculate_score(grid_manager: GridManager) -> float:
 	var score : float = 0.0
 	for rule: CatRule in data.rules:
 		score += rule.evaluate(self, grid_manager)
-	print(score, " calc")
+	apply_score(score)
+	print("Current " + data.cat_name + "'s mood:" + str(mood))
 	return score
 	

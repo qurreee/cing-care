@@ -29,4 +29,4 @@ func show_result() -> void:
 		label.modulate = Color.GREEN if entry.is_positive else Color.RED
 		score_list.add_child(label)
 		
-	total_score_label.text = "Total Score: %.1f" % GameManager.day_score
+	total_score_label.text = str(0)
