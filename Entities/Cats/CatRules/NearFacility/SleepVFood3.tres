@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NearFacilityRule" format=3 uid="uid://b53pde7w3ppu0"]
+
+[ext_resource type="Script" uid="uid://b8kr8gb7mdble" path="res://Entities/Cats/CatRules/NearFacility/near_facility_rule.gd" id="1_b1cgd"]
+
+[resource]
+script = ExtResource("1_b1cgd")
+source_facility = 3
+target_facility = 1
+max_distance = 3.0
+rule_name = "Loves Food when Sleep"
+is_negative = false
+weight = 10.0
+reward = 0.0
+metadata/_custom_type_script = "uid://b8kr8gb7mdble"

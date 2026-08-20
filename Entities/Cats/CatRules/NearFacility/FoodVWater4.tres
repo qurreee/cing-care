@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NearFacilityRule" format=3 uid="uid://dnwupeqg28ouf"]
+
+[ext_resource type="Script" uid="uid://b8kr8gb7mdble" path="res://Entities/Cats/CatRules/NearFacility/near_facility_rule.gd" id="1_vcu3g"]
+
+[resource]
+script = ExtResource("1_vcu3g")
+source_facility = 1
+target_facility = 2
+max_distance = 4.0
+rule_name = "Water near Food"
+is_negative = false
+weight = 8.0
+reward = 4.0
+metadata/_custom_type_script = "uid://b8kr8gb7mdble"

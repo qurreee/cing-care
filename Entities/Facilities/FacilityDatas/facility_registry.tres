@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FacilityRegistry" format=3 uid="uid://cc2kyllnf6nt1"]
+
+[ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Entities/Facilities/facility_data.gd" id="1_0uwts"]
+[ext_resource type="Script" uid="uid://bagneqj1n6801" path="res://Entities/Facilities/facility_registry.gd" id="2_rcj6t"]
+[ext_resource type="Resource" uid="uid://dbj1iiv3vvbc1" path="res://Entities/Facilities/FacilityDatas/Food1.tres" id="2_rhibt"]
+[ext_resource type="Resource" uid="uid://b3oj7hk0e3xno" path="res://Entities/Facilities/FacilityDatas/Maintenance1.tres" id="3_5h7qt"]
+[ext_resource type="Resource" uid="uid://brgwcu3s28hbf" path="res://Entities/Facilities/FacilityDatas/Play1.tres" id="4_v188e"]
+[ext_resource type="Resource" uid="uid://d1m184q5y7tv1" path="res://Entities/Facilities/FacilityDatas/Sleep1.tres" id="5_7hgyg"]
+[ext_resource type="Resource" uid="uid://y6uank8lebpl" path="res://Entities/Facilities/FacilityDatas/Toilet1.tres" id="6_xrxik"]
+[ext_resource type="Resource" uid="uid://bgn5ejtawqsk5" path="res://Entities/Facilities/FacilityDatas/Water1.tres" id="7_pex4y"]
+
+[resource]
+script = ExtResource("2_rcj6t")
+facilities = Array[ExtResource("1_0uwts")]([ExtResource("2_rhibt"), ExtResource("5_7hgyg"), ExtResource("6_xrxik"), ExtResource("7_pex4y"), ExtResource("4_v188e"), ExtResource("3_5h7qt")])
+metadata/_custom_type_script = "uid://bagneqj1n6801"

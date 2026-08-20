@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NearFacilityRule" format=3 uid="uid://ddllvsrs0qyk2"]
+
+[ext_resource type="Script" uid="uid://b8kr8gb7mdble" path="res://Entities/Cats/CatRules/NearFacility/near_facility_rule.gd" id="1_gnbkn"]
+
+[resource]
+script = ExtResource("1_gnbkn")
+source_facility = 3
+target_facility = 5
+rule_name = "Hate Toilet when Sleep"
+weight = 10.0
+reward = 0.0
+metadata/_custom_type_script = "uid://b8kr8gb7mdble"

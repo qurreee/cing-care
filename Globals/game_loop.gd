@@ -9,15 +9,13 @@ enum Phase {
 var current_phase: Phase = Phase.PREP
 var day_number: int = 1
 
-var day_timer: float = 60.0
+var day_timer: float = 20.0
 var _timer_remaining: float = 0.0
 
 signal phase_changed(phase: Phase)
 
 
 func start_day() -> void:
-	GameManager.generate_day()
-	GameManager.reset_day_score()
 	current_phase = Phase.DAY
 	_timer_remaining = day_timer
 	phase_changed.emit(Phase.DAY)

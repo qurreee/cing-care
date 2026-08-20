@@ -3,7 +3,8 @@ class_name GridManager
 
 var grid: Dictionary[Vector2i, Facility] = {}
 
-var GRID_SIZE: Vector2i = Vector2i(4, 4)
+
+@export var GRID_SIZE: Vector2i = Vector2i(4, 4)
 var CELL_SIZE: int = 128
 var GRID_ORIGIN: Vector2 = Vector2(200,100)
 @export var show_debug: bool = false

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CatRegistry" format=3 uid="uid://quh2bosh3gm4"]
+
+[ext_resource type="Script" uid="uid://d1nvjh23asoqc" path="res://Entities/Cats/cat_data.gd" id="1_joqtn"]
+[ext_resource type="Script" uid="uid://bfa8pdcopvyyb" path="res://Entities/Cats/cat_registry.gd" id="2_lngms"]
+[ext_resource type="Resource" uid="uid://ca7c7mujnna7t" path="res://Entities/Cats/CatDatas/D Rank Cat/lillie.tres" id="2_o7lls"]
+[ext_resource type="Resource" uid="uid://bvx5d0hmydqx" path="res://Entities/Cats/CatDatas/D Rank Cat/boris.tres" id="3_hpdj6"]
+[ext_resource type="Resource" uid="uid://bmmskwdg4lq1n" path="res://Entities/Cats/CatDatas/D Rank Cat/jack.tres" id="4_551vh"]
+[ext_resource type="Resource" uid="uid://j1mvxv88re42" path="res://Entities/Cats/CatDatas/D Rank Cat/cimong.tres" id="4_hpdj6"]
+[ext_resource type="Resource" uid="uid://crwu348rildj" path="res://Entities/Cats/CatDatas/D Rank Cat/sugar.tres" id="6_jmr35"]
+
+[resource]
+script = ExtResource("2_lngms")
+cats = Array[ExtResource("1_joqtn")]([ExtResource("3_hpdj6"), ExtResource("4_hpdj6"), ExtResource("4_551vh"), ExtResource("2_o7lls"), ExtResource("6_jmr35")])
+metadata/_custom_type_script = "uid://bfa8pdcopvyyb"

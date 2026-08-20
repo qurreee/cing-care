@@ -1,17 +1,23 @@
 extends Node
+#GAMEMANAGER
 
-var cat_registry: CatRegistry = preload("res://Cats/CatDatas/cat_registry.tres")
-var facility_registry: FacilityRegistry = preload("res://Scenes/Facilities/FacilityDatas/facility_registry.tres")
+var cat_registry: CatRegistry = preload("uid://quh2bosh3gm4")
+var facility_registry: FacilityRegistry = preload("uid://cc2kyllnf6nt1")
+var config: GameConfig = preload("uid://c8k7kyedtsqnh")
 
-
+var resident_cats: Array[CatData] = []  
 var todays_cats: Array[CatData] = []
+var cat_count: int 
 var day_number: int = 1
 
-var score_log: Array[ScoreEntry] = []
+var todays_income: float = 0.0
+var money: float = 100.0
+
+var mood_log: Array[ScoreEntry] = []
 
 
 
-#facility unlocked
+#FIXME from save file
 const DEFAULT_FACILITIES: Dictionary[String, bool] = {
 	"food_1": true,
 	"sleep_1": true,
@@ -19,12 +25,17 @@ const DEFAULT_FACILITIES: Dictionary[String, bool] = {
 	"toilet_1": false,
 	"play_1": false,
 	"maintenance_1": false,
-	
 }
 
 var owned_facilities: Dictionary[String, bool] 
 
 func _ready() -> void:
+	if day_number == 1:
+		owned_facilities = config.DEFAULT_FACILITIES.duplicate()
+	#else:
+		#pass #LOAD FROM SAVE
+		
+	cat_count = config.get_todays_cat_count(day_number)
 	owned_facilities = DEFAULT_FACILITIES.duplicate()
 	generate_day()
 	GameLoop.phase_changed.connect(on_day_phase_changed)
@@ -51,28 +62,42 @@ func get_owned_facility_datas() -> Array[FacilityData]:
 	return result
 	
 
+#TODO Add progression
 func generate_day() -> void:
-	todays_cats.clear()
-	var pool = cat_registry.cats.duplicate()
+	var diff : int = cat_count - resident_cats.size()
+	var pool = cat_registry.cats.filter(func(c): return c not in resident_cats)
 	pool.shuffle()
-	todays_cats = pool.slice(0, 3)
+	todays_cats.clear()
+	todays_cats.append_array(resident_cats)
+	todays_cats.append_array(pool.slice(0, diff))
+		
 
-func log_score(cat: Cat, facility: Facility, score:float) -> void:
+func log_mood(cat: Cat, facility: Facility, mood:float) -> void:
 	var entry = ScoreEntry.new()
 	entry.cat_name = cat.data.cat_name
 	entry.facility_name = facility.data.facility_name
-	entry.score = score
-	entry.is_positive = score > 0.0
-	score_log.append(entry)
-
+	entry.score = mood
+	entry.is_positive = mood >= 0.0
+	mood_log.append(entry)
 	
-func reset_day_score() -> void:
-	score_log.clear()
-
-
+func reset_day_mood_log() -> void:
+	mood_log.clear()
 
 func on_day_phase_changed(phase: GameLoop.Phase) -> void:
-	if phase == GameLoop.Phase.RESULT:
-		for i in score_log.size():
-			print(str(score_log[i].score) + "\n" )
+	if phase == GameLoop.Phase.DAY:
+		reset_day_mood_log()
+	elif  phase == GameLoop.Phase.RESULT:
+		pass
+	elif phase == GameLoop.Phase.PREP:
+		todays_income = 0
+		day_number += 1
+		cat_count = config.get_todays_cat_count(day_number)
 	
+func calculate_income(base: float, mood: float) -> void:
+	var income = base * mood
+	todays_income += income
+	print("INCOME ADDED: " + str(income) +", Total today: " + str(todays_income))
+	
+func finalize_income() -> void:
+	money += todays_income
+	print("Day ended. Income: ", todays_income, " Total money: ", money)

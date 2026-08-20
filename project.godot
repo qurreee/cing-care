@@ -24,7 +24,10 @@ GameLoop="*uid://c47udxru7ghsn"
 [file_customization]
 
 folder_colors={
-"res://Cats/CatDatas/": "yellow"
+"res://Entities/Cats/CatDatas/": "yellow",
+"res://Globals/": "green",
+"res://Scenes/": "purple",
+"res://UI/": "teal"
 }
 
 [physics]

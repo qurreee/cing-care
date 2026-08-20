@@ -22,7 +22,7 @@ func show_result() -> void:
 	for child in score_list.get_children():
 		child.queue_free()
 	
-	for entry in GameManager.score_log:
+	for entry in GameManager.mood_log:
 		var label = Label.new()
 		var prefix = "+" if entry.is_positive else ""
 		label.text = "%s at %s: %s%1.f" % [entry.cat_name, entry.facility_name, prefix, entry.score]

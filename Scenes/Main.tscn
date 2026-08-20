@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cx0s2nut0ha66" path="res://Scenes/GridManager.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://b5j5r6h8dkuac" path="res://UI/camera_2d.gd" id="6_v1gob"]
 [ext_resource type="Script" uid="uid://b3w3tmcry2ng1" path="res://Scenes/facility_manager.gd" id="7_bmxlf"]
-[ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Cats/Cat.tscn" id="7_jw32o"]
-[ext_resource type="PackedScene" uid="uid://rnpm102tnrx3" path="res://Scenes/Facilities/Facility.tscn" id="8_50glp"]
+[ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Entities/Cats/Cat.tscn" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://rnpm102tnrx3" path="res://Entities/Facilities/Facility.tscn" id="8_50glp"]
 [ext_resource type="Script" uid="uid://bqvsmxinrv5qr" path="res://UI/scoreUI/result_ui.gd" id="8_vy5pj"]
 [ext_resource type="Script" uid="uid://3804oy6hiww" path="res://Scenes/cat_manager.gd" id="9_vy5pj"]
 
