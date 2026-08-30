@@ -6,6 +6,8 @@ class_name NearFacilityRule
 @export var max_distance: float = 2.0
 
 func evaluate(cat: Cat, grid_manager: GridManager,  cats: Array[Cat] = []) -> float:
+	if cat.current_facility == null:
+		return 0.0
 	var source_cell = cat.current_facility.cell #Vector2i
 	#print(cat.data.cat_name + " is inside " + cat.current_facility.data.facility_name + " in " + str(source_cell))
 	var target_cells = grid_manager.get_facilities_by_type(target_facility) #Array[Facility] (Facility.cell)

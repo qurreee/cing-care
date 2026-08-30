@@ -74,6 +74,8 @@ func generate_day() -> void:
 		
 
 func log_mood(cat: Cat, facility: Facility, mood:float) -> void:
+	if cat.current_facility == null:
+		return
 	var entry = ScoreEntry.new()
 	entry.cat_name = cat.data.cat_name
 	entry.facility_name = facility.data.facility_name
