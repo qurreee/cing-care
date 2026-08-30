@@ -6,7 +6,7 @@ class_name CatRule
 @export var weight: float = 1.0
 @export var reward: float = 0.5  
 
-func evaluate(cat: Cat, grid_manager: GridManager) -> float:
+func evaluate(cat: Cat, grid_manager: GridManager,  cats: Array[Cat] = []) -> float:
 	return 0.0
 	
 

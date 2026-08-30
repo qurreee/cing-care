@@ -3,7 +3,8 @@ class_name GameConfig
 
 @export var cat_capacity: int = 3
 @export var day_duration: float = 60.0
-
+@export var GRID_SIZE: Vector2i = Vector2i(4, 4)
+#X is day, Y is cat count
 const CAT_COUNT: Array[Vector2]= [
 	Vector2(1, 2),
 	Vector2(4, 3),

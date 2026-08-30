@@ -5,10 +5,8 @@ class_name NearFacilityRule
 @export var target_facility: Enums.Needs
 @export var max_distance: float = 2.0
 
-func evaluate(cat: Cat, grid_manager: GridManager) -> float:
+func evaluate(cat: Cat, grid_manager: GridManager,  cats: Array[Cat] = []) -> float:
 	var source_cell = cat.current_facility.cell #Vector2i
-	if not source_cell == cat.current_cell:
-		return 0.0
 	#print(cat.data.cat_name + " is inside " + cat.current_facility.data.facility_name + " in " + str(source_cell))
 	var target_cells = grid_manager.get_facilities_by_type(target_facility) #Array[Facility] (Facility.cell)
 	
@@ -18,6 +16,8 @@ func evaluate(cat: Cat, grid_manager: GridManager) -> float:
 	var min_dist = INF
 	for facility in target_cells:
 		var d = cell_distance(source_cell, facility.cell)
+		if d == 0:
+			return 0.0
 		if d < min_dist: 
 			min_dist = d
 	

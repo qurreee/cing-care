@@ -18,14 +18,14 @@ var mood_log: Array[ScoreEntry] = []
 
 
 #FIXME from save file
-const DEFAULT_FACILITIES: Dictionary[String, bool] = {
-	"food_1": true,
-	"sleep_1": true,
-	"water_1": true,
-	"toilet_1": false,
-	"play_1": false,
-	"maintenance_1": false,
-}
+#const DEFAULT_FACILITIES: Dictionary[String, bool] = {
+	#"food_1": false,
+	#"sleep_1": true,
+	#"water_1": false,
+	#"toilet_1": false,
+	#"play_1": false,
+	#"maintenance_1": false,
+#}
 
 var owned_facilities: Dictionary[String, bool] 
 
@@ -36,7 +36,7 @@ func _ready() -> void:
 		#pass #LOAD FROM SAVE
 		
 	cat_count = config.get_todays_cat_count(day_number)
-	owned_facilities = DEFAULT_FACILITIES.duplicate()
+	#owned_facilities = DEFAULT_FACILITIES.duplicate()
 	generate_day()
 	GameLoop.phase_changed.connect(on_day_phase_changed)
 	#debug
@@ -65,6 +65,7 @@ func get_owned_facility_datas() -> Array[FacilityData]:
 #TODO Add progression
 func generate_day() -> void:
 	var diff : int = cat_count - resident_cats.size()
+	print("DIFF " + str(diff))
 	var pool = cat_registry.cats.filter(func(c): return c not in resident_cats)
 	pool.shuffle()
 	todays_cats.clear()
@@ -85,13 +86,16 @@ func reset_day_mood_log() -> void:
 
 func on_day_phase_changed(phase: GameLoop.Phase) -> void:
 	if phase == GameLoop.Phase.DAY:
-		reset_day_mood_log()
+		pass
 	elif  phase == GameLoop.Phase.RESULT:
 		pass
 	elif phase == GameLoop.Phase.PREP:
 		todays_income = 0
 		day_number += 1
 		cat_count = config.get_todays_cat_count(day_number)
+		generate_day()
+		print("CATCOUNT" + str(cat_count))
+		reset_day_mood_log()
 	
 func calculate_income(base: float, mood: float) -> void:
 	var income = base * mood

@@ -23,12 +23,14 @@ func cat_action() -> void:
 
 ##FIXME
 func _on_facility_use_finished(cat: Cat) -> void:
-	var mood = cat.calculate_score(grid_manager)
+	var mood = cat.calculate_score(grid_manager, cats)
 	GameManager.log_mood(cat, cat.current_facility, mood) 
 	cat.start_idle(randf_range(0.0, 4.0))
 	
 func _on_phase_changed(phase: GameLoop.Phase) -> void:
-	if phase == GameLoop.Phase.DAY:
+	if phase == GameLoop.Phase.PREP:
+		pass
+	elif phase == GameLoop.Phase.DAY:
 		cat_datas = GameManager.todays_cats
 		#for cat in cat_datas:
 			#print(cat.cat_name)
@@ -37,8 +39,6 @@ func _on_phase_changed(phase: GameLoop.Phase) -> void:
 		for cat in cats:
 			cat.set_process(false)
 		process_day_end()
-	elif phase == GameLoop.Phase.PREP:
-		pass
 
 func spawn_cats() -> void:
 	var existing_data = cats.map(func(c): return c.data)

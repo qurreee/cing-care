@@ -4,12 +4,13 @@
 [ext_resource type="Resource" uid="uid://d36rxv45glce8" path="res://Entities/Cats/CatRules/NearFacility/SleepXWater2.tres" id="2_p0fqv"]
 [ext_resource type="Script" uid="uid://d1nvjh23asoqc" path="res://Entities/Cats/cat_data.gd" id="3_ecj4m"]
 [ext_resource type="Resource" uid="uid://ddllvsrs0qyk2" path="res://Entities/Cats/CatRules/NearFacility/SleepXToilet2.tres" id="3_p0fqv"]
+[ext_resource type="Resource" uid="uid://gkrokywavjq2" path="res://Entities/Cats/CatRules/Sharing/Sleep4.tres" id="4_xvfea"]
 
 [resource]
 script = ExtResource("3_ecj4m")
 cat_name = "Boris"
 description = "Boris just sleeps. Boris hates sleeping next to the toilet and water."
-rules = Array[ExtResource("1_xwcin")]([ExtResource("2_p0fqv"), ExtResource("3_p0fqv")])
+rules = Array[ExtResource("1_xwcin")]([ExtResource("2_p0fqv"), ExtResource("3_p0fqv"), ExtResource("4_xvfea")])
 need_weights = Dictionary[int, float]({
 0: 1.0,
 1: 2.0,

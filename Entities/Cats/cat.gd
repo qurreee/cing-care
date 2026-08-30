@@ -41,6 +41,8 @@ enum MoveReason {
 var prev_need: Enums.Needs = Enums.Needs.FREE 
 var current_need: Enums.Needs 
 
+
+	
 func setup(cat_data: CatData) -> void:
 	data = cat_data
 	stay_duration  = cat_data.roll_stay_duration()
@@ -135,10 +137,10 @@ func apply_score(score: float) -> void:
 	mood = clampf(mood + score, 0, 100)
 	
 ##FIXME
-func calculate_score(grid_manager: GridManager) -> float:
+func calculate_score(grid_manager: GridManager, cats: Array[Cat]) -> float:
 	var score : float = 0.0
 	for rule: CatRule in data.rules:
-		score += rule.evaluate(self, grid_manager)
+		score += rule.evaluate(self, grid_manager, cats)
 	apply_score(score)
 	print("Current " + data.cat_name + "'s mood:" + str(mood))
 	return score

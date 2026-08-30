@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SharingRule" format=3 uid="uid://gkrokywavjq2"]
+
+[ext_resource type="Script" uid="uid://behqaj1rvsugv" path="res://Entities/Cats/CatRules/Sharing/sharing_rule.gd" id="1_kujpy"]
+
+[resource]
+script = ExtResource("1_kujpy")
+rule_name = "Hates Sharing Bed"
+weight = 15.0
+reward = 10.0
+metadata/_custom_type_script = "uid://behqaj1rvsugv"
