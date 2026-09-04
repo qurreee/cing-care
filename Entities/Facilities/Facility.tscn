@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rnpm102tnrx3"]
 
-[ext_resource type="Texture2D" uid="uid://rgly7xd67slh" path="res://Assets/catbed.png" id="1_1iksg"]
 [ext_resource type="Script" uid="uid://1pj8rik5x7uq" path="res://Entities/Facilities/facility.gd" id="1_vnknr"]
+[ext_resource type="Texture2D" uid="uid://bpsxcrn3b767l" path="res://Assets/FacilityAssets/Food1.png" id="2_hkcoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx6um"]
 size = Vector2(256, 256)
@@ -10,8 +10,8 @@ size = Vector2(256, 256)
 script = ExtResource("1_vnknr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=648991259]
-scale = Vector2(0.35312498, 0.34684727)
-texture = ExtResource("1_1iksg")
+scale = Vector2(4, 4)
+texture = ExtResource("2_hkcoi")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=774266148]
 scale = Vector2(0.43055555, 0.43055555)

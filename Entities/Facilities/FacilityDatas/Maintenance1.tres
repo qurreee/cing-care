@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="FacilityData" format=3 uid="uid://b3oj7hk0e3xno"]
 
 [ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Entities/Facilities/facility_data.gd" id="1_epe1w"]
+[ext_resource type="Texture2D" uid="uid://cvissv03ke4jb" path="res://Assets/FacilityAssets/maintenance1.png" id="2_taiyw"]
 
 [resource]
 script = ExtResource("1_epe1w")
 id = "maintenance_1"
 facility_name = "Brush and Comb"
 type = 6
+sprite = ExtResource("2_taiyw")
 metadata/_custom_type_script = "uid://ct72lyy22rdg"

@@ -132,6 +132,14 @@ func get_weighted_need() -> void:
 			current_need = need
 			return
 
+func interupt() -> void:
+	is_moving = false
+	current_facility = null
+	target_cell = Vector2i(-1, -1)
+	target_pos = Vector2i.ZERO
+	move_reason = MoveReason.NONE
+	state = State.IDLE
+	
 
 func apply_score(score: float) -> void:
 	mood = clampf(mood + score, 0, 100)

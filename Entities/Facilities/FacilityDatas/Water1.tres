@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="FacilityData" format=3 uid="uid://bgn5ejtawqsk5"]
 
 [ext_resource type="Script" uid="uid://ct72lyy22rdg" path="res://Entities/Facilities/facility_data.gd" id="1_h24pt"]
+[ext_resource type="Texture2D" uid="uid://ccdorwvqdvb5r" path="res://Assets/FacilityAssets/water1.png" id="2_d376u"]
 
 [resource]
 script = ExtResource("1_h24pt")
 id = "water_1"
 facility_name = "Water Bowl"
 type = 2
+sprite = ExtResource("2_d376u")
 metadata/_custom_type_script = "uid://ct72lyy22rdg"

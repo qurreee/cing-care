@@ -16,6 +16,7 @@ const Rarity_Multiplier: Dictionary = {
 #export stat change type
 @export var type: Enums.Needs
 @export var facility_tier: Rarity
+@export var sprite: Texture2D
 
 ##TODO amplify mood gained with each tier.
 func get_facility_multiplier() -> float:

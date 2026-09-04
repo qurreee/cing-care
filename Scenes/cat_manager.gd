@@ -37,6 +37,7 @@ func _on_phase_changed(phase: GameLoop.Phase) -> void:
 		spawn_cats()
 	elif phase == GameLoop.Phase.RESULT:
 		for cat in cats:
+			cat.interupt()
 			cat.set_process(false)
 		process_day_end()
 
@@ -47,6 +48,7 @@ func spawn_cats() -> void:
 		if cat_data in existing_data:
 			var resident: Cat = cats.filter(func(c): return c.data == cat_data)[0]
 			resident.set_process(true)
+			resident.interrupt()
 			resident.start_idle(randf_range(0.0, 4.0))
 		else:
 			var new_cat: Cat = cat_scene.instantiate()

@@ -20,7 +20,7 @@ const DEFAULT_FACILITIES: Dictionary[String, bool] = {
 	"water_1": false,
 	"toilet_1": false,
 	"play_1": false,
-	"maintenance_1": false,
+	"maintenance_1": true,
 }
 
 func get_todays_cat_count(day: int) -> int:

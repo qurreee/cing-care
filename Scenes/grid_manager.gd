@@ -7,7 +7,7 @@ const GAME_CONFIG = preload("uid://c8k7kyedtsqnh")
 
 var GRID_SIZE: Vector2i 
 var CELL_SIZE: int = 128
-var GRID_ORIGIN: Vector2 = Vector2(200,100)
+var GRID_ORIGIN: Vector2 = Vector2(100,100)
 @export var show_debug: bool = false
 
 func _ready() -> void:

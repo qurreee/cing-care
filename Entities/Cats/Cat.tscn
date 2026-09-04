@@ -40,6 +40,11 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [node name="Cat" type="CharacterBody2D" unique_id=1164465714]
@@ -52,5 +57,5 @@ shape = SubResource("CircleShape2D_2v165")
 position = Vector2(0, -13)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
