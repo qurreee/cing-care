@@ -1,19 +1,45 @@
-[gd_scene format=3 uid="uid://qdjhlxm4jwr5"]
+[gd_scene format=4 uid="uid://qdjhlxm4jwr5"]
 
 [ext_resource type="Script" uid="uid://b04gylem30a7v" path="res://Scenes/main.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://cx0s2nut0ha66" path="res://Scenes/GridManager.tscn" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://co3jacxxfk8da" path="res://Assets/tileassets/groundtile.png" id="3_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://dx762n32np8n2" path="res://Assets/tileassets/windowtile.png" id="4_4kpch"]
 [ext_resource type="Script" uid="uid://b5j5r6h8dkuac" path="res://UI/camera_2d.gd" id="6_v1gob"]
 [ext_resource type="Script" uid="uid://b3w3tmcry2ng1" path="res://Scenes/facility_manager.gd" id="7_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://bl3g4h7yq5gm7" path="res://Entities/Cats/Cat.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://rnpm102tnrx3" path="res://Entities/Facilities/Facility.tscn" id="8_50glp"]
 [ext_resource type="Script" uid="uid://bqvsmxinrv5qr" path="res://UI/scoreUI/result_ui.gd" id="8_vy5pj"]
 [ext_resource type="Script" uid="uid://3804oy6hiww" path="res://Scenes/cat_manager.gd" id="9_vy5pj"]
+[ext_resource type="Theme" uid="uid://dldinflbtaqh1" path="res://UI/UITheme.tres" id="10_4kpch"]
+[ext_resource type="Script" uid="uid://er5hqec1t6bh" path="res://UI/pause_ui.gd" id="12_frkhe"]
+[ext_resource type="PackedScene" uid="uid://dhpwns1mpmlbn" path="res://UI/MainMenu/menu_button.tscn" id="12_grg3l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy5pj"]
+texture = ExtResource("3_bmxlf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmxlf"]
+texture = ExtResource("4_4kpch")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_50glp"]
+tile_size = Vector2i(32, 32)
+sources/8 = SubResource("TileSetAtlasSource_vy5pj")
+sources/9 = SubResource("TileSetAtlasSource_bmxlf")
 
 [node name="Main" type="Node2D" unique_id=1146822521]
 script = ExtResource("1_idj7w")
 
 [node name="GridManager" parent="." unique_id=1617946444 instance=ExtResource("1_r150o")]
 show_debug = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="GridManager" unique_id=257761478]
+z_index = -1
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAAACAAAAAAAAAAAAAEACAAAAAAAAAAAAAIACAAAAAAAAAABAAIACAAAAAAAAAABAAMACAAAAAAAAAAAAAMACAAAAAAAAAACAAMACAAAAAAAAAADAAMACAAAAAAAAAADAAIACAAAAAAAAAACAAIACAAAAAAAAAACAAEACAAAAAAAAAACAAAACAAAAAAAAAABAAAACAAAAAAAAAABAAEACAAAAAAAAAADAAAACAAAAAAAAAADAAEACAAAAAAAAAAAAP//CQAAAAAAAAABAP//CQAAAAAAAAACAP//CQAAAAAAAAADAP//CQAAAAAAAAA=")
+tile_set = SubResource("TileSet_50glp")
 
 [node name="FacilityManager" type="Node2D" parent="." unique_id=1830920807]
 script = ExtResource("7_bmxlf")
@@ -35,8 +61,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_4kpch")
 
 [node name="NextPhase Button" type="Button" parent="CanvasLayer/UI" unique_id=190799656]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -58,15 +87,18 @@ offset_bottom = 23.0
 
 [node name="DayPhase" type="Label" parent="CanvasLayer/UI" unique_id=1310979849]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-text = "PREP"
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 35.0
+offset_right = 32.0
+offset_bottom = 81.0
+grow_horizontal = 2
+text = "PREPARATION"
 
 [node name="ResultUI" type="Control" parent="CanvasLayer/UI" unique_id=248881819]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,10 +146,101 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TotalScoreLabel" type="Label" parent="CanvasLayer/UI/ResultUI/backpanel" unique_id=100765849]
-layout_mode = 0
-offset_left = -257.5
-offset_top = -114.5
-offset_right = -217.5
-offset_bottom = -91.5
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PauseUI" type="Control" parent="CanvasLayer/UI" unique_id=86244466]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_frkhe")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/PauseUI" unique_id=529923738]
+custom_minimum_size = Vector2(630, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.5
+offset_top = -208.5
+offset_right = 317.5
+offset_bottom = 208.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PauseUI/PanelContainer" unique_id=536193152]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" parent="CanvasLayer/UI/PauseUI/PanelContainer/VBoxContainer" unique_id=1382116184 instance=ExtResource("12_grg3l")]
+layout_mode = 2
+text = "Resume"
+
+[node name="Back to Menu" parent="CanvasLayer/UI/PauseUI/PanelContainer/VBoxContainer" unique_id=1088836053 instance=ExtResource("12_grg3l")]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="Tutorial UI" type="Control" parent="CanvasLayer/UI" unique_id=2107251436]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -20.0
+offset_right = -202.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/Tutorial UI" unique_id=1684293463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Tutorial UI/PanelContainer" unique_id=652742124]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Tutorial UI/PanelContainer/MarginContainer" unique_id=1786547906]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UI/Tutorial UI/PanelContainer/MarginContainer/VBoxContainer" unique_id=395648779]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "This is the prep phase, you can arrange your cat facility in this phase. It will affect the coins you get later based on if the cats like your arrangements."
+fit_content = true
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/Tutorial UI/PanelContainer/MarginContainer/VBoxContainer" unique_id=2017796285]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
+text = "next"
 
 [connection signal="pressed" from="CanvasLayer/UI/NextPhase Button" to="." method="_on_next_phase_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseUI/PanelContainer/VBoxContainer/Resume" to="CanvasLayer/UI/PauseUI" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PauseUI/PanelContainer/VBoxContainer/Back to Menu" to="CanvasLayer/UI/PauseUI" method="_on_back_to_menu_pressed"]

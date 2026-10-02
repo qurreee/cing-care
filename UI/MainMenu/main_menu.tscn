@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cs1ybq8hgnlcv"]
+
+[ext_resource type="Theme" uid="uid://dldinflbtaqh1" path="res://UI/UITheme.tres" id="1_t17p2"]
+[ext_resource type="PackedScene" uid="uid://dhpwns1mpmlbn" path="res://UI/MainMenu/menu_button.tscn" id="2_3jj5y"]
+[ext_resource type="Script" uid="uid://bmvxua3yf1807" path="res://UI/MainMenu/main_menu.gd" id="2_h8rmy"]
+
+[node name="Main Menu" type="Control" unique_id=1961868067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t17p2")
+script = ExtResource("2_h8rmy")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=646229372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=857769526]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TitleRichLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=380255297]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"richtextlabeltitle"
+bbcode_enabled = true
+text = "[wave] CingCare"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PlayButton" parent="PanelContainer/VBoxContainer" unique_id=1382116184 instance=ExtResource("2_3jj5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SettingsButton" parent="PanelContainer/VBoxContainer" unique_id=832220672 instance=ExtResource("2_3jj5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Settings"
+
+[node name="CreditsButton" parent="PanelContainer/VBoxContainer" unique_id=364635731 instance=ExtResource("2_3jj5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits"
+
+[node name="ExitButton" parent="PanelContainer/VBoxContainer" unique_id=2064920718 instance=ExtResource("2_3jj5y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

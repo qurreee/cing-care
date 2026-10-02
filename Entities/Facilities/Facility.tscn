@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://1pj8rik5x7uq" path="res://Entities/Facilities/facility.gd" id="1_vnknr"]
 [ext_resource type="Texture2D" uid="uid://bpsxcrn3b767l" path="res://Assets/FacilityAssets/Food1.png" id="2_hkcoi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx6um"]
-size = Vector2(256, 256)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkcoi"]
+radius = 64.629715
 
 [node name="Facility" type="Node2D" unique_id=678339485]
 script = ExtResource("1_vnknr")
@@ -13,9 +13,25 @@ script = ExtResource("1_vnknr")
 scale = Vector2(4, 4)
 texture = ExtResource("2_hkcoi")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=774266148]
-scale = Vector2(0.43055555, 0.43055555)
+[node name="FacilityNameLabel" type="Label" parent="." unique_id=1118451854]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -63.0
+offset_right = 44.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=939686133]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_rx6um")
+[node name="Area2D" type="Area2D" parent="." unique_id=864088852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1273737461]
+shape = SubResource("CircleShape2D_hkcoi")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

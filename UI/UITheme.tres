@@ -1,0 +1,34 @@
+[gd_resource type="Theme" format=3 uid="uid://dldinflbtaqh1"]
+
+[ext_resource type="StyleBox" uid="uid://cryjc15x7xqxb" path="res://UI/new_style_box_flat.tres" id="1_mudyb"]
+[ext_resource type="FontFile" uid="uid://bt8qae2dp1fk4" path="res://Assets/Pixeled.ttf" id="2_cnlh1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnlh1"]
+bg_color = Color(0.4509804, 0.74509805, 0.827451, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.78039217, 0.8117647, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy8pq"]
+bg_color = Color(0.4509804, 0.74509805, 0.827451, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.78039217, 0.8117647, 0.8, 1)
+
+[resource]
+default_font = ExtResource("2_cnlh1")
+Button/colors/font_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
+Button/colors/font_pressed_color = Color(0.4509804, 0.74509805, 0.827451, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_cnlh1")
+Button/styles/hover = SubResource("StyleBoxFlat_cy8pq")
+Button/styles/normal = ExtResource("1_mudyb")
+Button/styles/pressed = ExtResource("1_mudyb")
+PanelContainer/styles/panel = ExtResource("1_mudyb")
+RichTextLabel/colors/default_color = Color(0.0627451, 0.078431375, 0.12156863, 1)
+VBoxContainer/constants/separation = 16
+richtextlabeltitle/base_type = &"RichTextLabel"
+richtextlabeltitle/font_sizes/normal_font_size = 64

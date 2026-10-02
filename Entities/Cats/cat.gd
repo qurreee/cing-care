@@ -41,12 +41,18 @@ enum MoveReason {
 var prev_need: Enums.Needs = Enums.Needs.FREE 
 var current_need: Enums.Needs 
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var cat_name_label: Label = $CatNameLabel
 
 
 	
 func setup(cat_data: CatData) -> void:
 	data = cat_data
+	animated_sprite_2d.modulate = Color(
+	randf_range(0, 1.0),
+	randf_range(0, 1.0),
+	randf_range(0, 1.0)
+	)
 	cat_name_label.text = data.cat_name
 	stay_duration  = cat_data.roll_stay_duration()
 

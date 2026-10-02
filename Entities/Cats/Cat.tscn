@@ -54,6 +54,7 @@ script = ExtResource("1_mf5uw")
 shape = SubResource("CircleShape2D_2v165")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=672151596]
+modulate = Color(0, 1, 0.8862745, 1)
 position = Vector2(0, -13)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2hdoq")

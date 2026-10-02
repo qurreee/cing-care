@@ -3,6 +3,7 @@ class_name GridManager
 
 var grid: Dictionary[Vector2i, Facility] = {}
 const GAME_CONFIG = preload("uid://c8k7kyedtsqnh")
+@onready var tile_map_layer: TileMapLayer = $TileMapLayer
 
 
 var GRID_SIZE: Vector2i 
@@ -10,11 +11,13 @@ var CELL_SIZE: int = 128
 var GRID_ORIGIN: Vector2 = Vector2(100,100)
 @export var show_debug: bool = false
 
-func _ready() -> void:
+func _ready() -> void:  
 	#debug()
 	GRID_SIZE = GAME_CONFIG.GRID_SIZE
 	center_grid()
+	tile_map_layer.position = GRID_ORIGIN
 	queue_redraw()
+	
 	
 
 func _unhandled_input(event: InputEvent) -> void:

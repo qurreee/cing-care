@@ -30,11 +30,12 @@ func update_grid_center() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Drag with middle mouse
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
-		position -= event.relative * drag_sensitivity / zoom
-		clamp_camera()
-
+	## Drag with middle mouse
+	#if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
+		#position -= event.relative * drag_sensitivity / zoom
+		#clamp_camera()
+	if GameLoop.current_phase == GameLoop.Phase.RESULT:
+		return
 	# Zoom with scroll
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
