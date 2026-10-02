@@ -6,15 +6,19 @@ enum Phase {
 	RESULT
 }
 
+var config: GameConfig = preload("uid://c8k7kyedtsqnh")
+
 var current_phase: Phase = Phase.PREP
 var day_number: int = 1
 
-var day_timer: float = 20.0
+var day_timer: float
 var _timer_remaining: float = 0.0
 
 signal phase_changed(phase: Phase)
 
-
+func _ready() -> void:
+	day_timer = config.day_duration
+	
 func start_day() -> void:
 	current_phase = Phase.DAY
 	_timer_remaining = day_timer

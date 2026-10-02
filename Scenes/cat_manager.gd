@@ -48,16 +48,16 @@ func spawn_cats() -> void:
 		if cat_data in existing_data:
 			var resident: Cat = cats.filter(func(c): return c.data == cat_data)[0]
 			resident.set_process(true)
-			resident.interrupt()
+			resident.interupt()
 			resident.start_idle(randf_range(0.0, 4.0))
 		else:
 			var new_cat: Cat = cat_scene.instantiate()
+			add_child(new_cat)
 			new_cat.setup(cat_data)
 			#print(cat.cat_name + " is staying for " + str(new_cat.stay_duration))
 			new_cat.facility_use_finished.connect(_on_facility_use_finished)
 			new_cat.needs_think.connect(_on_cat_needs_think)
 			new_cat.needs_wander.connect(_on_cat_needs_wander)
-			add_child(new_cat)
 			cats.append(new_cat)
 			place_cat(new_cat)
 			new_cat.start_idle(randf_range(1.0, 4.0))

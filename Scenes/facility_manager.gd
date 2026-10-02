@@ -8,16 +8,22 @@ var owned_facilities: Array[FacilityData]
 
 var held_facility: Facility = null
 var held_from_cell: Vector2i
-var has_spawned: bool = false
+var spawned_ids: Array[String] = []
 
 func _ready() -> void:
 	GameLoop.phase_changed.connect(_on_phase_changed)
 	_on_phase_changed(GameLoop.Phase.PREP)
 
 func _on_phase_changed(phase: GameLoop.Phase) -> void:
-	if phase == GameLoop.Phase.PREP and not has_spawned:
-		spawn_facilities(GameManager.get_owned_facility_datas())
-		has_spawned = true
+	if phase == GameLoop.Phase.PREP:
+		sync_facilities()
+
+func sync_facilities() -> void:
+	var owned = GameManager.get_owned_facility_datas()
+	for data in owned:
+		if data.id not in spawned_ids:
+			place_facility(data)
+			spawned_ids.append(data.id)
 
 func spawn_facilities(facility_datas: Array[FacilityData]) -> void:
 	for data in facility_datas:

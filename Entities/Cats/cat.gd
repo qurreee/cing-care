@@ -41,10 +41,13 @@ enum MoveReason {
 var prev_need: Enums.Needs = Enums.Needs.FREE 
 var current_need: Enums.Needs 
 
+@onready var cat_name_label: Label = $CatNameLabel
+
 
 	
 func setup(cat_data: CatData) -> void:
 	data = cat_data
+	cat_name_label.text = data.cat_name
 	stay_duration  = cat_data.roll_stay_duration()
 
 ##TODO add minus mood if no facility

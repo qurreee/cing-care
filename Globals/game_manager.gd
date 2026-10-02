@@ -52,6 +52,14 @@ func unlock_facility(facility_id: String) -> void:
 	else:
 		push_warning("unknown id : ", facility_id)
 
+func process_unlocks() -> void:
+	if not config.FACILITY_UNLOCK_SCHEDULE.has(day_number):
+		return
+	
+	for id in config.FACILITY_UNLOCK_SCHEDULE[day_number]:
+		unlock_facility(id)
+
+	
 func get_owned_facility_datas() -> Array[FacilityData]:
 	var result: Array[FacilityData] = []
 	
@@ -95,6 +103,7 @@ func on_day_phase_changed(phase: GameLoop.Phase) -> void:
 		todays_income = 0
 		day_number += 1
 		cat_count = config.get_todays_cat_count(day_number)
+		process_unlocks()
 		generate_day()
 		print("CATCOUNT" + str(cat_count))
 		reset_day_mood_log()

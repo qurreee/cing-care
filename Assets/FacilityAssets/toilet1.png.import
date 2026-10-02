@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3jblm2hxdah"
-path="res://.godot/imported/catfood.png-cf73efaa08937523b8326caad8406171.ctex"
+uid="uid://bdgu52pgbsi23"
+path="res://.godot/imported/toilet1.png-f048dbe55fade09506031e0e6b9ee0dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/catfood.png"
-dest_files=["res://.godot/imported/catfood.png-cf73efaa08937523b8326caad8406171.ctex"]
+source_file="res://Assets/FacilityAssets/toilet1.png"
+dest_files=["res://.godot/imported/toilet1.png-f048dbe55fade09506031e0e6b9ee0dd.ctex"]
 
 [params]
 

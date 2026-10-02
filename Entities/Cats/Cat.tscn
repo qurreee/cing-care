@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bl3g4h7yq5gm7"]
 
-[ext_resource type="Texture2D" uid="uid://b0ywavesvv1pu" path="res://Entities/Cats/Cat Sprite Sheet.png" id="1_hcucf"]
+[ext_resource type="Texture2D" uid="uid://b0ywavesvv1pu" path="res://Assets/CatAssets/Cat Sprite Sheet.png" id="1_hcucf"]
 [ext_resource type="Script" uid="uid://cylxh8da66epd" path="res://Entities/Cats/cat.gd" id="1_mf5uw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2v165"]
@@ -57,5 +57,22 @@ shape = SubResource("CircleShape2D_2v165")
 position = Vector2(0, -13)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
+
+[node name="CatNameLabel" type="Label" parent="." unique_id=899430709]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -49.0
+offset_right = 39.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "CAT"
+horizontal_alignment = 1
+vertical_alignment = 1

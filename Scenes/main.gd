@@ -11,7 +11,6 @@ func _ready() -> void:
 func _on_next_phase_button_pressed() -> void:
 	if GameLoop.current_phase == GameLoop.Phase.PREP:
 		GameLoop.start_day()
-		update_label()
 		day_phase.text = "DAY"
 	elif GameLoop.current_phase == GameLoop.Phase.DAY:
 		GameLoop.end_day()
@@ -19,6 +18,7 @@ func _on_next_phase_button_pressed() -> void:
 	elif GameLoop.current_phase == GameLoop.Phase.RESULT:
 		GameLoop.next_day()
 		day_phase.text = "PREP"
+		update_label()
 
 func _on_phase_changed(phase: GameLoop.Phase) -> void:
 	if phase == GameLoop.Phase.DAY:
